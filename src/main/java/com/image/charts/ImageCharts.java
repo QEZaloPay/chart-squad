@@ -752,7 +752,7 @@ public class ImageCharts {
     String formatName = this.getFileFormat();
     final ByteArrayOutputStream os = new ByteArrayOutputStream();
     ImageIO.write(image, "png", os);
-    return "data:" + "image/" + formatName + ";base64," + Base64.getEncoder().toString();
+    return "data:" + "image/" + formatName + ";base64," + Base64.getEncoder().encodeToString(os.toByteArray());
   }
 
   private static String sign(String key, String data) throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
